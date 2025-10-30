@@ -1,4 +1,5 @@
 # 17keynumpad
+![calculators image](https://github.com/KacperBizon/17keynumpad/blob/main/calculators.jpg)
 ### board pinout
 | pin/pin | B5(9) | (B6(14) | B2(16) | B3(10) 
 |-------|:-------:|----:|--------:|--------:|
