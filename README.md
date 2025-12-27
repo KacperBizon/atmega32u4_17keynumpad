@@ -38,7 +38,7 @@ del / num:
 - pcb
 - 17 1n4148 diodes
 - 3x2U pcb stabilizers
-- pro micro ATMEGA32U4
+- pro micro ATMEGA32U4 (make sure to solder it on the bottom with 'front' orientation)
 - 16x2 i2c lcd screen
 - toggle switch
 - 17 switches
