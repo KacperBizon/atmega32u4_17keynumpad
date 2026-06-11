@@ -48,3 +48,6 @@ del / num:
 - 4 orings
 - tp4056 (optional)
 - lipo 800/600 mAh battery (optional)
+
+### Acknowledgment
+Special thanks to [PCBWay](https://www.pcbway.com) for sponsoring the CNC-machined case for this project. Their customer service team was quick to answer questions, and the machining quality of the enclosure is clean and precise.
