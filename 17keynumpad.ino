@@ -86,7 +86,7 @@ void setup() {
   for (int j = 0; j < colcount; j++)
     pinMode(cols[j], INPUT_PULLUP);
 
-  lcd.begin();
+  lcd.begin(16, 2);
   lcd.noBlink();
   lcd.noCursor();
   //lcd.noBacklight();
