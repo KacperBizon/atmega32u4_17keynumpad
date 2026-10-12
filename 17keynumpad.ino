@@ -50,7 +50,13 @@ const byte cols[] = {9, 14, 16, 10};
 const int colcount = sizeof(cols) / sizeof(cols[0]);
 
 //keymap (comment up)
-const uint8_t keymap[rowcount][colcount] = {8, '/', '*', '-', '7', '8', '9', 32, '4', '5', '6', '+', '1', '2', '3', 32, 32, '0', '.', 10}; // 17 (+3)
+const uint8_t keymap[rowcount][colcount] = {
+  {8, '/', '*', '-'},
+  {'7', '8', '9', 32},
+  {'4', '5', '6', '+'},
+  {'1', '2', '3', 32},
+  {32, '0', '.', 10}
+}; // 17 (+3)
 
 //state of key
 bool state[rowcount][colcount] = {}; // 17 (+3)
@@ -74,6 +80,8 @@ bool afterenter = 0;
 byte shiftright = 0;
 
 void setup() {
+  delay(100);
+
   //state 1 (inactive)
   for (int k = 0; k < rowcount; k++)
     for (int m = 0; m < colcount; m++)
@@ -86,10 +94,11 @@ void setup() {
   for (int j = 0; j < colcount; j++)
     pinMode(cols[j], INPUT_PULLUP);
 
+  Wire.begin();
   lcd.begin(16, 2);
   lcd.noBlink();
   lcd.noCursor();
-  //lcd.noBacklight();
+  lcd.backlight();
   lcd.setCursor(0, 0);
 
   Keyboard.begin();
