@@ -85,15 +85,37 @@ void setup() {
   Keyboard.begin();
 }
 
+String formatDisplay(String valStr) {
+  if (valStr.length() == 0) return "";
+  if (valStr.endsWith(".")) return valStr;
+  if (valStr.indexOf('.') == -1) return valStr;
+
+  float64_t val = fp64_atof(&valStr[0]);
+  String res = String(fp64_to_string(val, 10, 10));
+
+  if (res.indexOf('.') != -1) {
+    while (res.endsWith("0")) {
+      res.remove(res.length() - 1);
+    }
+    if (res.endsWith(".")) {
+      res.remove(res.length() - 1);
+    }
+  }
+
+  if (res == "-0") res = "0";
+
+  return res;
+}
+
 void printingsequencetoprow() {
-  String topStr = left;
+  String topStr = formatDisplay(left);
 
   if (middle)
     topStr += char(middle);
-  topStr += right;
+  topStr += formatDisplay(right);
   if (middle2)
     topStr += char(middle2);
-  topStr += right2;
+  topStr += formatDisplay(right2);
 
   lcd.clear();
   lcd.setCursor(0, 0);
@@ -107,7 +129,7 @@ void printingsequencetoprow() {
 
 void printingsequencebottomrow() {
   lcd.setCursor(0, 1);
-  lcd.print(left);
+  lcd.print(formatDisplay(left));
 }
 
 void deletelastchar() {
